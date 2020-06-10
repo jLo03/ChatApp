@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dungeons And Dragons Main Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="rpg-awesome-master/css/rpg-awesome.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/mini.png" />
+    <!--
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
+    -->
+</head>
+<body onload="myFunction()" onLoad="window.scroll(0, 0)">
+<div id="l-back">
+    <div id="loader"> </div>
+</div>
+<!--Responsive Navbar-->
+<div id="navbar" class="animate-bottom">
+  <img src="images/logo.png "id="logo" ></img>
+  <nav id="navbar-right" class="stroke">
+    <a href="#home"> <i class="fas fa-home"></i> Home</a>
+    <a href="Chat/index.html"> <i class="fas fa-sign-in-alt"></i> Sign-in</a>
+    <a href="#news"> <i class="fas fa-align-right"></i> News</a>
+    <a href="Chat/index.html"> <i style = "color: red" class="ra ra-crossed-swords"></i> Play Now!</a>
+  </nav>
+</div>
+
+<!--Hero Image-->
+<div id="maindiv">
+    <div id = "home" class="hero-image">
+      <div class="hero-text">
+        <h1 class="animate-bottom" style="font-size:60px">Dungeons and Dragons</h1>
+        <p class="animate-bottom">An interactive text <span id="dynam"></span> </p>
+      </div>
+    </div>
+    <!--Divider-->
+    <div class="news-div">
+        <a id="news" class="d-text">NEWS</a>
+        <img class ="d-image" src=images/divider.png>
+    </div>
+    <!--CSS Cards--> 
+    <ul style="list-style-type:none">
+       <li style="float:left"> 
+        <div style = "left:75px" id="one" class="card-container">
+          <div class = "preview" style="font-size:22px"> Announcements</div>
+          <div class="popup">
+            <a style="font-size:22px"> Announcements <br></a>
+            <a> 2020-3-02: Launch! <br> 2020-3-03: First Update! </a>
+          </div>
+        </div>
+       </li>
+       <li style="float:left"> 
+        <div style = "left:150px" id="two" class="card-container">
+          <div class = "preview" style="font-size:22px"> Loading Screen Added</div>
+          <div class="popup">
+            <a style="font-size:22px"> Loading Screen Added <br></a>
+            <a> With the amazing coding skills of Ethan Li, users can experience an immersive and aesthetic loading screen of this very website! </a>
+          </div>
+        </div>
+       </li>
+       <li style="float:left"> 
+        <div style = "left:225px" id="three" class="card-container">
+          <div class = "preview" style="font-size:22px"> Google Sign-In Added</div>
+          <div class="popup">
+            <a style="font-size:22px"> Google Sign-In Added <br></a>
+            <a> With the amazing coding skills of Justin Lo, users can now sign in using google! Experience this feature by clicking "sign in" in the nav bar!</a>
+          </div>
+        </div>
+       </li>
+    </ul>
+    <!--Divider-->
+    <div class="f-div">
+        <a class="d-text">FEATURES</a>
+        <img class ="d-image" src=images/divider.png>
+        <a class="f-text">Interactive Chat System:</a>
+    </div>
+    <!--Features Container-->
+    <div class="f-back">
+        <div class="f-container">
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class ="foot">
+    </div>
+
+</div>
+</body>
+</html>
+
+<script>
+const type = string => {
+    document.getElementById("dynam").innerHTML = '';
+    var i = 0;
+    var txt = string;
+    var chatWindow = document.getElementById("dynam");
+    if (i < txt.length) {
+        setInterval(function(){
+          if (i < txt.length) {
+            chatWindow.innerHTML += txt.charAt(i);
+            i++;
+          }
+        }, 55);
+      }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, 1000* ms));
+}
+
+async function hi(){
+  var i = false;
+  while(i==false){
+    type('adventure');
+    await sleep(3);
+    type('journey');
+    await sleep(3);
+    type('crusade');
+    await sleep(3);
+    type('campaign');
+    await sleep(3);
+    type('expedition');
+    await sleep(3);
+  }
+}
+hi()
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.backgroundColor = "rgba(0, 0, 0, .5)";
+    document.getElementById("navbar").style.padding = "8px 10px";
+    document.getElementById("logo").style.width= "90px";
+    document.getElementById("navbar-right").style.fontSize = "18px";
+
+  } else {
+    document.getElementById("navbar").style.backgroundColor = "black";
+    document.getElementById("navbar").style.padding = "10px 10px";
+    document.getElementById("logo").style.width= "100px";
+    document.getElementById("navbar-right").style.fontSize = "20px";
+  }
+}
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 1500);
+}
+
+function showPage() {
+  document.getElementById("l-back").style.display = "none";
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("navbar").style.display = "initial";
+  document.getElementById("maindiv").style.display = "initial";
+}
+
+
+
+</script>

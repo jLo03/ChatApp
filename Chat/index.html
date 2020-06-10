@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+
+  <!-- Firebase -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script> 
+
+
+</head>
+<body>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div><a style="font-size: 34px">Calm Down!<a><br> Every message you send costs money. <br>Please be considerate to us poor developers.<br>Thank You!</div>
+  </div>
+
+</div>
+
+<!-- partial:index.partial.html -->
+<div class="container clearfix">
+    <div class="people-list" id="people-list">
+      <div class="search">
+        <input type="text" placeholder="search" />
+        <i class="fa fa-search"></i>
+      </div>
+      <ul class="list">
+        <li class="clearfix">
+          <img style="width:60px"src="logo.png" alt="avatar" />
+          <div class="about">
+            <div class="name">DND</div>
+            <div class="status">
+              <i class="fa fa-circle online"></i> online
+            </div>
+          </div>
+        </li>
+        
+        <script>
+        function signIn() {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          firebase.auth().signInWithRedirect(provider).then(function(result) { 
+          window.location.replace("fbtest.html");
+          });
+        }
+        </script>
+
+
+
+      </ul>
+    </div>
+    
+    <div class="chat">
+      <div class="chat-header clearfix">
+        <img style="width:60px"src="logo.png" alt="avatar" />
+        
+        <div class="chat-about">
+          <div class="chat-with"> Dungeons and Dragons Chat 1</div>
+          <div class="chat-num-messages"> Day 1 </div>
+        </div>
+        <i class="fa fa-star"></i>
+      </div> <!-- end chat-header -->
+      <div class="chat-history">
+
+
+        <ul>
+
+          <!-- One Message
+
+          <li class="clearfix">
+            <div class="message-data align-right">
+              <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
+              <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+              
+            </div>
+            <div class="message other-message float-right">
+              Hi Vincent, how are you? How is the project coming along?
+            </div>
+          </li>
+          
+          -->
+
+        
+
+
+
+          
+        </ul>
+        
+      </div> <!-- end chat-history -->
+      
+      <div class="chat-message clearfix">
+        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+                
+        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+        <i class="fa fa-file-image-o"></i>
+        
+        <button>Send</button>
+
+      </div> <!-- end chat-message -->
+      
+    </div> <!-- end chat -->
+    
+  </div> <!-- end container -->
+
+<script id="message-template" type="text/x-handlebars-template">
+  <li class="clearfix">
+    <div class="message-data align-right">
+      <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+      <span class="message-data-name" > {{name}} </span> <i class="fa fa-circle me"></i>
+    </div>
+    <div class="message other-message float-right">
+      {{messageOutput}}
+    </div>
+  </li>
+</script>
+
+<script id="message-response-template" type="text/x-handlebars-template">
+  <li>
+    <div class="message-data">
+      <span class="message-data-name"><i class="fa fa-circle online"></i> {{name}} </span>
+      <span class="message-data-time">{{time}}, Today</span>
+    </div>
+    <div class="message my-message">
+      {{response}}
+    </div>
+  </li>
+</script>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
